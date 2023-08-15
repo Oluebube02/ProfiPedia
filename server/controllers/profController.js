@@ -2,7 +2,9 @@ const Prof = require('../models/Professor')
 
 
 const getProf = async (req, res) => {
-  const {first, last} = req.body
+  const name = req.params.name
+  const [first, last] = name.split('-')
+  
 
   if (!first && !last){
     res.status(400).json("Please enter firt and last name of the professor")
@@ -17,6 +19,7 @@ const getProf = async (req, res) => {
 }
 
 const addProf = async (req, res)  => {
+  console.log(req.cookies)
   const {firstName, lastName, school} = req.body
   await Prof.addprofessor(res, firstName, lastName, school)
 }

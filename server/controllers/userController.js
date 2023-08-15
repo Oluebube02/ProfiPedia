@@ -40,6 +40,8 @@ const signup = async (req, res) => {
       maxAge: 24 * 60 *60* 1000 
     })
     res.status(200).json({accessToken, data : {id:user._id, email: email}})
+    
+    
   }
 
 }
@@ -47,6 +49,7 @@ const signup = async (req, res) => {
 
 
 const login = async (req, res) => {
+  console.log("req cook", req.cookies)
 
   const {email, password} = req.body
 
@@ -56,11 +59,12 @@ const login = async (req, res) => {
     const {accessToken, refreshToken} = createToken(user)
     res.cookie('jwt', refreshToken, {
       httpOnly: true,  
-      secure:true,
       sameSite: 'None',  
       maxAge: 24 * 60 *60* 1000 
     })
     res.status(200).json({accessToken, data : {id:user._id, email: email}})
+   
+
   }
   
   

@@ -6,7 +6,7 @@ const verifyAuth = require('../middleware/VerifyAuth')
 
 const {addProf, getProf, rateProf} = require('../controllers/profController')
 
-router.post('/get_prof', getProf)
+router.get('/get_prof/:name', getProf)
 
 router.use(verifyAuth)
 

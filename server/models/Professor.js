@@ -45,11 +45,12 @@ ProfSchema.statics.addprofessor = async function (res, firstname, lastname, scho
     average_diff : 0
   }
   const prof = await this.create({firstname, lastname, school, rating_info})
-  const id = prof._id
+  const id = prof._id.toString()
+  prof._id = id
 
 
 
-  return res.status(200).json({prof, id})
+  return res.status(200).json(prof)
 }
 
 module.exports = mongoose.model('Professor', ProfSchema)
