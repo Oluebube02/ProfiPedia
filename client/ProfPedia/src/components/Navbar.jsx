@@ -19,21 +19,16 @@ function Navbar({data, setProfList}) {
     e.preventDefault()
     const fullname  = name.trim()
     const arr = fullname.split(' ')
-    const body = {first : arr[0], last : ''}
-    if (arr.length == 2) {
-      body.last = arr[1]
-    }
-
+    const first = arr[0]
+    const last = arr.length == 2 ? arr[1] : ''
     setName('')
     
     if (searchParam == 'professor') {
       navigate('/find-professor/' + fullname)
-      const url = 'http://localhost:3000/prof/get_prof'
-      const response = await baseQuery(url, 'POST', body)
+      const url = `http://localhost:3000/prof/get_prof/${first}-${last}`
+      const response = await baseQuery(url, 'GET', {})
       const json = await response.json()
       setProfList(json)
- 
-      
       
     }
   }

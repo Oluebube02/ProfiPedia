@@ -5,7 +5,7 @@ import { AuthContext } from '../AuthContext/AuthContext'
 import { useContext } from 'react'
 import { useNavigate } from 'react-router'
 
-function AddProf() {
+function AddProf({setAddedProf, setProf}) {
   const school_list = schools.map((school) => <option key={school.objectId} value = {school.name}>{school.name}</option>)
   const navigate = useNavigate()
   const [firstname, setFirstName] = useState('')
@@ -17,6 +17,7 @@ function AddProf() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setIsLoading(true)
     const url = 'http://localhost:3000/prof/add_prof'
     const firstName = firstname.trim().toLowerCase()
     const lastName = lastname.trimEnd().toLowerCase()
@@ -26,9 +27,15 @@ function AddProf() {
       setError("Please log in first. Redirecting...")
       console.log(error)
       setTimeout(() => {navigate('/login')}, "3000")
-    }
-    console.log(json)
+    }else{
+      setIsLoading(false)
+      setAddedProf(true)
+      setProf(json)
+      navigate('/rate-professor')
 
+
+    }
+    
     
 
   }

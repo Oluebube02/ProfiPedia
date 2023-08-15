@@ -2,12 +2,11 @@ import React from 'react'
 import ProfTab from '../components/ProfTab'
 import { Link } from 'react-router-dom'
 
-function DisplayProfs({prof_list}) {
+function DisplayProfs({prof_list, setAddedProf, setProf}) {
   console.log("profs", prof_list)
   const displayProfs  = (arr) => arr.map(prof =>{
-    const {firstname, lastname, school, rating_info} = prof
-    const name = `${firstname} ${lastname}`
-    return <ProfTab key = {name} name ={name} school ={school}difficulty={rating_info.average_diff} total_rating={rating_info.total_rating} avg_rating={rating_info.average_rating}/>
+    const name = `${prof.firstname} ${prof.lastname}`
+    return <ProfTab key = {name} prof ={prof} setAddedProf={setAddedProf} setProf={setProf}/>
 
   })
   return (

@@ -12,3 +12,9 @@
   justify-content: space-between;
   padding: 30px;
 }
+
+.side-bar{
+  display:flex;
+  flex-direction: column;
+  
+}
