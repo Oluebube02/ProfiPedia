@@ -16,6 +16,7 @@ function Navbar({data, setProfList}) {
   }
 
   const search = async (e) => {
+    setProfList([])
     e.preventDefault()
     const fullname  = name.trim()
     const arr = fullname.split(' ')

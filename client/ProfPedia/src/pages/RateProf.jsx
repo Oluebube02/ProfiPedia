@@ -1,19 +1,8 @@
-import {React, useState} from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react'
 
-function RateProf({addedProf, prof}) {
-
-  //const [justAdded, setJustAdded] = useState(addedProf)
+function RateProf({prof}) {
   return (
-    <div>
-       <div>
-        <p>You have successfully added <strong>{`${prof.firstname} ${prof.lastname}`}</strong></p>
-        <Link>Rate this professor</Link>
-      </div>
-      <form>
-
-      </form>
-    </div>
+    <div>RateProf</div>
   )
 }
 

@@ -1,16 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-function ProfTab({prof, setAddedProf, setProf}) {
+function ProfTab({prof, setProf}) {
   const name = `${prof.firstname} ${prof.lastname}`
+  const {average_diff, average_rating, rating_count} = prof.rating_info
   return (
     <div>
       <h1>{name}</h1>
       <h2>{prof.school}</h2>
-      <p>Difficulty : {prof.difficulty}</p>
-      <p>{prof.total_rating} ratings</p>
-      <p>{prof.avg_rating} average rating</p>
-      <Link to ='/rate-professor' onClick={() => {setAddedProf(false), setProf(prof)}}>Rate this professor</Link>
+      <p>{`${average_diff} difficulty`}</p>
+      <p>{`${rating_count} ratings`}</p>
+      <p>{`${average_rating} average rating`}</p>
+      <Link to ='/rate-professor' onClick={() => setProf(prof)}>Rate this professor</Link>
     </div>
   )
 }

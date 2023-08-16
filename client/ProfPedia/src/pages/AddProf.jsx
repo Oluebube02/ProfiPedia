@@ -5,7 +5,7 @@ import { AuthContext } from '../AuthContext/AuthContext'
 import { useContext } from 'react'
 import { useNavigate } from 'react-router'
 
-function AddProf({setAddedProf, setProf}) {
+function AddProf({setProf}) {
   const school_list = schools.map((school) => <option key={school.objectId} value = {school.name}>{school.name}</option>)
   const navigate = useNavigate()
   const [firstname, setFirstName] = useState('')
@@ -29,16 +29,11 @@ function AddProf({setAddedProf, setProf}) {
       setTimeout(() => {navigate('/login')}, "3000")
     }else{
       setIsLoading(false)
-      setAddedProf(true)
       setProf(json)
-      navigate('/rate-professor')
-
-
+      navigate('/add-success')
     }
-    
-    
-
   }
+  
   return (
     <div className='auth-div'>
       <form className='auth-form'>

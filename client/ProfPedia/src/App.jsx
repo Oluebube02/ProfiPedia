@@ -10,8 +10,8 @@ import { useState } from 'react'
 import DisplayProfs from './pages/DisplayProfs'
 import AddProf from './pages/AddProf'
 import Sidebar from './components/Sidebar'
+import AddedProf from './pages/AddedProf'
 import RateProf from './pages/RateProf'
-
 function App() {
 
   const {state} = useContext(AuthContext)
@@ -27,8 +27,9 @@ function App() {
           <Route path = '/login' element = {<Login/>}> </Route>
           <Route path = '/signup' element = {<SignUp/>}> </Route>
           <Route path = '/find-professor/:id' element = {<DisplayProfs prof_list={ProfList} setAddedProf={setAddedProf} setProf={setProf}/>}></Route>
-          <Route path = '/add-professor' element = {<AddProf setAddedProf={setAddedProf} setProf={setProf}/>}></Route>
-          <Route path = '/rate-professor' element = {<RateProf addedProf = {addedProf} prof = {prof}/>}></Route>
+          <Route path = '/add-professor' element = {<AddProf setProf={setProf}/>}></Route>
+          <Route path = '/add-success' element = {<AddedProf  prof = {prof}/>}></Route>
+          <Route path = '/rate-professor' element = {<RateProf prof = {prof}/>}></Route>
         </Routes>
 
       </div>
