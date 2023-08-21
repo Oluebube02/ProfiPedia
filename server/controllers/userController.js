@@ -73,9 +73,6 @@ const login = async (req, res) => {
 
 
 const logout = (req, res) => {
-  const cookies = req.cookies
-  console.log(cookies)
-  if (!cookies?.jwt) return res.json({ data: cookies  })
   res.clearCookie('jwt', { httpOnly: true, sameSite: 'None', secure: true })
   res.json({ data: null  })
 }

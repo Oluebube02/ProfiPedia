@@ -1,7 +1,7 @@
 import { baseAuthQuery } from "./useAuthQuery";
 
 
-export const AuthQuery = async (url, method, body, state, dispatch) =>{
+export const AuthQuery = async (url, method, body, state) =>{
   
   const Query = async () => {
     const response = await baseAuthQuery(url, method, body, state)

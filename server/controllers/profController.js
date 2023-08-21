@@ -19,7 +19,6 @@ const getProf = async (req, res) => {
 }
 
 const addProf = async (req, res)  => {
-  console.log(req.cookies)
   const {firstName, lastName, school} = req.body
   await Prof.addprofessor(res, firstName, lastName, school)
 }

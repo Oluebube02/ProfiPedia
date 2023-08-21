@@ -4,7 +4,7 @@ const verifyAuth = (req, res, next) => {
 
   const authHeader = req.headers.authorization
   if (!authHeader?.startsWith('Bearer')) {
-    return res.status(401).json({ message: 'Unauthorized' })
+    return res.status(401).json('Unauthorized')
   }
 
   const token = authHeader.split(' ')[1].trim()
@@ -13,7 +13,7 @@ const verifyAuth = (req, res, next) => {
     token,
     process.env.ACCESS_SECRET,
     (err, decoded) => {
-        if (err) return res.status(403).json({ message: 'Forbidden' })
+        if (err) return res.status(403).json('Forbidden')
         req.id = decoded.id
         req.email = decoded.email
         next()

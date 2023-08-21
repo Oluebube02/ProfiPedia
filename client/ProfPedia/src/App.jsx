@@ -21,7 +21,7 @@ function App() {
   return (
       <div>
         <Navbar data = {state.data} setProfList={setProfList} />
-        <Sidebar/>
+        <Sidebar data = {state.data}/>
         <Routes>
           <Route path='/' element = {<Home/>}> </Route>
           <Route path = '/login' element = {<Login/>}> </Route>
@@ -29,7 +29,7 @@ function App() {
           <Route path = '/find-professor/:id' element = {<DisplayProfs prof_list={ProfList} setAddedProf={setAddedProf} setProf={setProf}/>}></Route>
           <Route path = '/add-professor' element = {<AddProf setProf={setProf}/>}></Route>
           <Route path = '/add-success' element = {<AddedProf  prof = {prof}/>}></Route>
-          <Route path = '/rate-professor' element = {<RateProf prof = {prof}/>}></Route>
+          <Route path = '/rate-professor/:id' element = {<RateProf prof = {prof}/>}></Route>
         </Routes>
 
       </div>

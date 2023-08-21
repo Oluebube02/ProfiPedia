@@ -10,7 +10,7 @@ const setAuthData = (state, action) => {
     case 'SIGNIN':
       return {data:action.payload}
     case 'LOGOUT':
-      return {data : null}
+      return action.payload
     default:
       return state
   }

@@ -24,7 +24,11 @@ const userRoute = require('./routes/userRoute')
 
 const profRoute = require('./routes/profRoute')
 
+const rateRoute = require('./routes/ratingRoute')
+
 app.use('/user', userRoute)
 
 app.use('/prof', profRoute )
+
+app.use('/ratings', rateRoute)
 

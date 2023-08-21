@@ -13,15 +13,9 @@ export const baseQuery = async (url, method, body) => {
     const response = await fetch(url, {
       method: method,
       headers: {'Content-Type': 'application/json'},
-      credentials:'include',
     })
-    return response
-    
+    return response 
   }
-    
-  
-
-
 }
 
 

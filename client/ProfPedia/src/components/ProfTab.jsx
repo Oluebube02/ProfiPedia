@@ -11,7 +11,8 @@ function ProfTab({prof, setProf}) {
       <p>{`${average_diff} difficulty`}</p>
       <p>{`${rating_count} ratings`}</p>
       <p>{`${average_rating} average rating`}</p>
-      <Link to ='/rate-professor' onClick={() => setProf(prof)}>Rate this professor</Link>
+      <Link to ={`/rate-professor/${prof._id}`} onClick={() => setProf(prof)}>Rate this professor</Link>
+      <Link to ='/view-ratings' onClick={() => setProf(prof)}>View ratings</Link>
     </div>
   )
 }

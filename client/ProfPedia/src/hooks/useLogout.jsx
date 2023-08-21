@@ -15,8 +15,8 @@ export const useLogout = () => {
       withCredentials : true
     })
 
-
-    dispatch({type:'LOGOUT'})
+    const data = await response.json()
+    dispatch({type:'LOGOUT', payload:data})
     
     navigate('/')
     

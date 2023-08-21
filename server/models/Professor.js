@@ -24,7 +24,7 @@ const ProfSchema = new Schema(
       rating_count : Number,
       average_rating : Number,
       total_diff : Number,
-      average_diff : Number
+      average_diff : Number, 
     }
   }
 )
@@ -43,6 +43,7 @@ ProfSchema.statics.addprofessor = async function (res, firstname, lastname, scho
     average_rating : 0,
     total_diff : 0,
     average_diff : 0
+  
   }
   const prof = await this.create({firstname, lastname, school, rating_info})
   const id = prof._id.toString()

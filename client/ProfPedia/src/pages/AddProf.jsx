@@ -13,7 +13,7 @@ function AddProf({setProf}) {
   const [school, setSchool] = useState('')
   const [error, setError] = useState('')
   const [isLoading, setIsLoading] = useState(false)
-  const {state, dispatch} = useContext(AuthContext)
+  const {state} = useContext(AuthContext)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -21,11 +21,10 @@ function AddProf({setProf}) {
     const url = 'http://localhost:3000/prof/add_prof'
     const firstName = firstname.trim().toLowerCase()
     const lastName = lastname.trimEnd().toLowerCase()
-    const response =  await AuthQuery(url, 'POST', {firstName, lastName, school}, state, dispatch)
+    const response =  await AuthQuery(url, 'POST', {firstName, lastName, school}, state)
     const json = await response.json()
     if (!response.ok){
       setError("Please log in first. Redirecting...")
-      console.log(error)
       setTimeout(() => {navigate('/login')}, "3000")
     }else{
       setIsLoading(false)
