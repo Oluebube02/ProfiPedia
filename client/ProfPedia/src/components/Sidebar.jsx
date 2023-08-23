@@ -10,10 +10,10 @@ function Sidebar({data}) {
   
   return (
     <div className='side-bar'>
-      <Link to = '/saved-professors'>My saved professors</Link>
-      <Link to = '/my-ratings'>My ratings</Link>
-      {data && <Link to = '/' onClick={async () => await logout()}>Logout</Link>}
-      {!data && <Link to = '/login'>Login</Link>}
+      <div><Link to = '/saved-professors'>My saved professors</Link></div>
+      <div><Link to = '/my-ratings'>My ratings</Link></div>
+      {data && <div><Link to = '/' onClick={async () => await logout()}>Logout</Link></div>}
+      {!data && <div><Link to = '/login'>Login</Link></div>}
     </div>
   )
 }

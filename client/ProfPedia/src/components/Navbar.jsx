@@ -37,8 +37,8 @@ function Navbar({data, setProfList}) {
   return (
       <header>
         <div className='header'>
-          <div><p>Prof<strong>Pedia</strong></p></div>
-          <div>
+          <div className='header-title'><p>Prof<strong>Pedia</strong></p></div>
+          <div className='header-search'>
             <input type = "text" placeholder='Search..' onChange={(e) => setName(e.target.value)} value = {name}></input>
             <select onChange = {(e) => setSearchParam(e.target.value)}>
               <option value='school'>School</option>
@@ -46,14 +46,14 @@ function Navbar({data, setProfList}) {
             </select>
             <button onClick={search}>{`Find ${searchParam}`}</button>
           </div>
-          {!data && <div>
+          {!data && <div className='auth-links'>
             <Link to='/login'> Login </Link>
             <Link to = '/signup'>Sign up</Link>
           </div>}
 
-          {data && <div>
+          {data && <div className='header-user'>
             <Link to='/' onClick={handleLogout}> Logout </Link>
-            <p>{`HEY ${data.data.email}`}</p>
+            <p>Hello, <strong>{data.data.email}</strong></p>
           </div>}
         </div>
       </header>

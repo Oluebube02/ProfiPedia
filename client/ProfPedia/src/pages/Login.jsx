@@ -20,25 +20,28 @@ function Login() {
 
   return (
     <div className='auth-div'>
-      <form className='auth-form'>
-        <div>
-          <label>Email:</label>
-        </div>
-        <div>
-          <input type='email' value = {email} onChange={(e)=> setEmail(e.target.value)} placeholder='Email..'></input>
-        </div>
-        <div>
-          <label>Password:</label>
-        </div>
-        <div>
-          <input type = 'password' value = {password} onChange={(e) => setPassword(e.target.value)} placeholder='Password'></input>
-        </div>
-        <div>
-          <button disabled = {isLoading} onClick={handleSubmit}>Login</button><p>Don't have an account? </p>
-          <Link to='/signup'>Sign up</Link>
-          {error && <div>{error}</div>}
-        </div>
-      </form>
+      <div className='login-container'>
+        <form className='auth-form'>
+          <div className='login-component'>
+            <label>Email:</label>
+          </div>
+          <div className='login-input'>
+            <input type='email' value = {email} onChange={(e)=> setEmail(e.target.value)} placeholder='Email...'></input>
+          </div>
+          <div className='login-component'>
+            <label>Password:</label>
+          </div>
+          <div className='login-input'>
+            <input type = 'password' value = {password} onChange={(e) => setPassword(e.target.value)} placeholder='Password'></input>
+          </div>
+          <div>
+            <button disabled = {isLoading} onClick={handleSubmit}>Login</button><p>Don't have an account? </p>
+            <Link to='/signup'>Sign up</Link>
+            {error && <div>{error}</div>}
+          </div>
+        </form>
+      </div>
+
     </div>
   )
 }
